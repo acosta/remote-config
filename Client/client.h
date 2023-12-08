@@ -5,13 +5,20 @@
 
 class QUdpSocket;
 
+struct ConfigData
+{
+    quint16 temperature;
+    quint16 velocity;
+};
+
+
 class Client : public QObject
 {
     Q_OBJECT
 public:
     explicit Client(QObject *parent = nullptr);
     ~Client();
-    void sendConfig(quint16 temperature, quint16 velocity);
+    void sendConfig(ConfigData config);
 
 private:
     QUdpSocket *mSocket = nullptr;

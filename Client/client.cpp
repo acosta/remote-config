@@ -17,13 +17,13 @@ Client::~Client()
     delete mSocket;
 }
 
-void Client::sendConfig(quint16 temperature, quint16 velocity)
+void Client::sendConfig(ConfigData config)
 {
     qDebug() << "Sending configuration datagram...";
-    qDebug() << "Temperature == " << temperature << " velocity == " << velocity;
+    qDebug() << "Temperature == " << config.temperature << " velocity == " << config.velocity;
     QByteArray datagram;
     QDataStream stream(&datagram, QIODevice::WriteOnly);
     stream.setVersion(QDataStream::Qt_6_6);
-    stream << temperature << velocity;
+    stream << config.temperature << config.velocity;
     mSocket->writeDatagram(datagram, QHostAddress::LocalHost, SOCKET_PORT);
 }

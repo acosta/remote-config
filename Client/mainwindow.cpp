@@ -25,9 +25,10 @@ void MainWindow::onQuitButtonClicked()
 
 void MainWindow::onSendButtonClicked()
 {
-    quint16 temperature = ui->tempSpinBox->value();
-    quint16 velocity = ui->velocSpinBox->value();
+    ConfigData config;
+    config.temperature = ui->tempSpinBox->value();;
+    config.velocity = ui->velocSpinBox->value();
 
-    mClient->sendConfig(temperature, velocity);
+    mClient->sendConfig(config);
 }
 
