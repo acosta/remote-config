@@ -11,8 +11,6 @@ class Client : public QObject
 public:
     explicit Client(QObject *parent = nullptr);
     ~Client();
-    void connect();
-    void disconnect();
     void sendConfig(quint16 temperature, quint16 velocity);
 
 private:

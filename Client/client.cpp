@@ -17,20 +17,13 @@ Client::~Client()
     delete mSocket;
 }
 
-void Client::connect()
-{
-    if (mSocket->isOpen())
-        return;
-
-    mSocket->bind(SOCKET_PORT, QUdpSocket::ShareAddress);
-}
-
-void Client::disconnect()
-{
-    mSocket->close();
-}
-
 void Client::sendConfig(quint16 temperature, quint16 velocity)
 {
-    qDebug() << "Seding the configuration with temperature == " << temperature << " velocity == " << velocity;
+    qDebug() << "Sending configuration datagram...";
+    qDebug() << "Temperature == " << temperature << " velocity == " << velocity;
+    QByteArray datagram;
+    QDataStream stream(&datagram, QIODevice::WriteOnly);
+    stream.setVersion(QDataStream::Qt_6_6);
+    stream << temperature << velocity;
+    mSocket->writeDatagram(datagram, QHostAddress::LocalHost, SOCKET_PORT);
 }

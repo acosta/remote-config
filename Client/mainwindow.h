@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+class Client;
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -19,8 +21,11 @@ public:
 
 private slots:
     void onQuitButtonClicked();
+    void onSendButtonClicked();
 
 private:
     Ui::MainWindow *ui;
+    Client *mClient = nullptr;
+
 };
 #endif // MAINWINDOW_H
