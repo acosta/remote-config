@@ -10,6 +10,8 @@ The project is organized in `Server` and `Client`. Both have their own subdirect
 
 Make sure that you have Qt installed in your machine. If you don't have it, use [its official documentation](https://www.qt.io/download) to install it.
 
+> **Note:** The Qt version used in the development is 6.6.0
+
 Once Qt is installed, you can use `qmake` and `make` to build the applications. Using a terminal, go to the application directory (`Client` or `Server`) and run `qmake` (to generate the Makefile) and build the application using `make`.
 
 After the building has been finished, you can locate and run the application (binary file) in the same directory that you performed the commands. For example, in a Mac OS the `Server` application is located at:
