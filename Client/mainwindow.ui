@@ -113,6 +113,9 @@
             <verstretch>0</verstretch>
            </sizepolicy>
           </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Values between 0 and 99.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
           <property name="maximum">
            <number>60</number>
           </property>
@@ -130,7 +133,7 @@
            </sizepolicy>
           </property>
           <property name="toolTip">
-           <string extracomment="Values from 0 to 120"/>
+           <string extracomment="Values from 0 to 120">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Values between 0 and 120.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="toolTipDuration">
            <number>3</number>
