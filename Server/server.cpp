@@ -1,6 +1,7 @@
 #include "server.h"
 
 #include <QDateTime>
+#include <QFile>
 #include <QUdpSocket>
 
 const quint16 SOCKET_PORT = 1454;
@@ -38,4 +39,18 @@ void Server::handleReceivedConfig()
 
     qDebug() << "Temperature: " << temperature << "Velocity: " << velocity;
 
+    saveConfigToFile(temperature, velocity);
+}
+
+void Server::saveConfigToFile(quint16 temperature, quint16 velocity)
+{
+    QFile file("remote-config.txt");
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qWarning() << "File could not be opened!";
+        return;
+    }
+    QTextStream stream(&file);
+    stream << "temperature: " << temperature << " velocity: " << velocity;
+
+    file.close();
 }

@@ -16,6 +16,8 @@ private slots:
     void handleReceivedConfig();
 
 private:
+    void saveConfigToFile(quint16 temperature, quint16 velocity);
+
     QUdpSocket *mSocket = nullptr;
 };
 
