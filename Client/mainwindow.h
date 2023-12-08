@@ -18,7 +18,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_quitButton_clicked();
+    void onQuitButtonClicked();
 
 private:
     Ui::MainWindow *ui;

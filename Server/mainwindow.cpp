@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent)
     , mServer(new Server())
 {
     ui->setupUi(this);
+    connect(ui->quitButton, SIGNAL(clicked()), this, SLOT(onQuitButtonClicked()));
 }
 
 MainWindow::~MainWindow()
@@ -16,7 +17,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_quitButton_clicked()
+void MainWindow::onQuitButtonClicked()
 {
     close();
 }
